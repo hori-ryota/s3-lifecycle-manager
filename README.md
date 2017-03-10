@@ -33,3 +33,11 @@ $ ./update.sh ${targetCName}
 ```
 
 更新用。`get-bucket-lifecycle-configuration` のjsonと `put-bucket-lifecycle-configuration` の形式は若干違うので、`jq` コマンドで整形したものを入力へ。
+
+### 全bucketを targetBuckets.txt に入れたい場合
+
+このコマンドで入るかと思います。
+
+```sh
+$ aws s3api list-buckets | jq -r '.Buckets[].Name' > targetBuckets.txt
+```
